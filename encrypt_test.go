@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	testAESDataLength = 1 << 12
+	testAESDataLength = 1 << 10
 	testRSADataLength = 1 << 5
 )
 
