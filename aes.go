@@ -20,7 +20,7 @@ func generateAESKey(bits int) (string, error) {
 	if _, err := rand.Read(out); err != nil {
 		return "", err
 	}
-	return encodeToString(out), nil
+	return EncodeToString(out), nil
 }
 
 type aesTransformer struct {
@@ -42,11 +42,11 @@ func (a *aesTransformer) Encrypt(value []byte) ([]byte, error) {
 		return nil, err
 	}
 	cipher.NewCFBEncrypter(a.block, iv).XORKeyStream(out[aes.BlockSize:], value)
-	return []byte(encodeToString(out)), nil
+	return []byte(EncodeToString(out)), nil
 }
 
 func (a *aesTransformer) Decrypt(value []byte) ([]byte, error) {
-	decodedValueObj, err := decodeString(string(value))
+	decodedValueObj, err := DecodeString(string(value))
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func (a *aesTransformer) Decrypt(value []byte) ([]byte, error) {
 }
 
 func getAESBlock(key string) (cipher.Block, error) {
-	decodedKey, err := decodeString(key)
+	decodedKey, err := DecodeString(key)
 	if err != nil {
 		return nil, err
 	}

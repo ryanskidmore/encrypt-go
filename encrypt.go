@@ -3,6 +3,8 @@ Package encrypt provides simplified utilities to encrypt and decrypt data using 
 */
 package encrypt
 
+import "encoding/base64"
+
 const (
 	// AES128Bits is the number of bits in an AES-128 key.
 	AES128Bits = 128
@@ -56,4 +58,14 @@ func NewRSAEncryptor(publicKey string) (Encryptor, error) {
 // NewRSATransformer returns a new RSA Transformer with the given private key.
 func NewRSATransformer(privateKey string) (Transformer, error) {
 	return newRSATransformer(privateKey)
+}
+
+// EncodeToString is a simple wrapper for base64 encoding.
+func EncodeToString(value []byte) string {
+	return base64.StdEncoding.EncodeToString(value)
+}
+
+// DecodeString is a simple wrapper for base64 decoding.
+func DecodeString(value string) ([]byte, error) {
+	return base64.StdEncoding.DecodeString(value)
 }

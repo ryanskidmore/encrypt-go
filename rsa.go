@@ -58,7 +58,7 @@ func (e *rsaEncryptor) Encrypt(value []byte) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	return []byte(encodeToString(encrypted)), nil
+	return []byte(EncodeToString(encrypted)), nil
 }
 
 type rsaTransformer struct {
@@ -78,11 +78,11 @@ func (t *rsaTransformer) Encrypt(value []byte) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	return []byte(encodeToString(encrypted)), nil
+	return []byte(EncodeToString(encrypted)), nil
 }
 
 func (t *rsaTransformer) Decrypt(value []byte) ([]byte, error) {
-	decodedValueObj, err := decodeString(string(value))
+	decodedValueObj, err := DecodeString(string(value))
 	if err != nil {
 		return nil, err
 	}

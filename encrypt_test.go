@@ -17,7 +17,7 @@ func TestAES(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	fmt.Printf("AES key is %s\n", key)
+	fmt.Printf("AES key is %s, length %d\n", key, len(key))
 	transformer, err := NewAESTransformer(key)
 	if err != nil {
 		t.Fatal(err)
