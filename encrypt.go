@@ -1,7 +1,7 @@
 /*
 Package encrypt provides simplified utilities to encrypt and decrypt data using standard libraries.
 */
-package encrypt
+package encrypt // import "go.pedge.io/encrypt"
 
 import "encoding/base64"
 
