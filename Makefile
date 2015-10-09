@@ -1,18 +1,3 @@
-.PHONY: \
-	all \
-	deps \
-	updatedeps \
-	testdeps \
-	updatetestdeps \
-	build \
-	lint \
-	vet \
-	errcheck \
-	pretest \
-	test \
-	cov \
-	clean
-
 all: test
 
 deps:
@@ -46,10 +31,19 @@ pretest: lint vet errcheck
 test: testdeps pretest
 	go test -test.v ./...
 
-cov: testdeps
-	go get -v github.com/axw/gocov/gocov
-	go get golang.org/x/tools/cmd/cover
-	gocov test | gocov report
-
 clean:
 	go clean -i ./...
+
+.PHONY: \
+	all \
+	deps \
+	updatedeps \
+	testdeps \
+	updatetestdeps \
+	build \
+	lint \
+	vet \
+	errcheck \
+	pretest \
+	test \
+	clean
