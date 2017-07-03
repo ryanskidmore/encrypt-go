@@ -14,6 +14,8 @@ const (
 	AES256Bits = 256
 	// RSA2048Bits is the number of bits in a 2048-bit RSA key.
 	RSA2048Bits = 2048
+	// 3072 Bit Key
+	RSA3072Bits = 3072
 )
 
 // Encryptor encrypts data.
