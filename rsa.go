@@ -119,6 +119,8 @@ func validateRSABits(bits int) error {
 	switch bits {
 	case RSA2048Bits:
 		return nil
+	case RSA3072Bits:
+		return nil
 	default:
 		return fmt.Errorf("invalid key length: %d", bits)
 	}
